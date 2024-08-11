@@ -3,11 +3,11 @@ requires = ["flit_core >=2,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name =  "py-project-toml"
+name =  "skyboxremote"
 authors = [
-    {name = "Daniel Ciborowski", email = "dciborow@microsoft.com"},
+    {name = "dunnmj", email = "mat@dunnmj.co.uk"},
 ]
-description = "Sample Python Project for creating a new Python Module"
+description = "A python library for controlling a sky box"
 readme = "README.md"
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -47,12 +47,12 @@ test = [
 ]
 
 [project.urls]
-Documentation = "https://github.com/microsoft/python-package-template/tree/main#readme"
-Source = "https://github.com/microsoft/python-package-template"
-Tracker = "https://github.com/microsoft/python-package-template/issues"
+Documentation = "https://github.com/dunnmj/skyboxremote#readme"
+Source = "https://github.com/dunnmj/skyboxremote"
+Tracker = "https://github.com/dunnmj/skyboxremote/issues"
 
 [tool.flit.module]
-name = "python_package"
+name = "skyboxremote"
 
 [tool.bandit]
 exclude_dirs = ["build","dist","tests","scripts"]
