@@ -5,7 +5,7 @@ build-backend = "flit_core.buildapi"
 [project]
 name =  "skyboxremote"
 authors = [
-    {name = "dunnmj", email = "mat@dunnmj.co.uk"},
+    {name = "dunnmj", email = "dunnmj@users.noreply.github.com"},
 ]
 description = "A python library for controlling a sky box"
 readme = "README.md"
