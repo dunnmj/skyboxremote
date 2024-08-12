@@ -22,30 +22,30 @@ remote.send_keys(['sky', 'tvguide', 'green'])
 ```
 
 ### Available remote control commands
-'power'
+`power`
 
-'sky'
+`sky`
 
-'tvguide' 'boxoffice' 'services' 'interactive'
+`tvguide` `boxoffice` `services` `interactive`
 
-'up' 'down' 'left' 'right'
+`up` `down` `left` `right`
 
-'select' 'backup'
+`select` `backup`
 
-'channelup' 'channeldown'
+`channelup` `channeldown`
 
-'i' 'text' 'help'
+`i` `text` `help`
 
-'red' 'green' 'yellow' 'blue'
+`red` `green` `yellow` `blue`
 
-'0' '1' '2' '3' '4' '5' '6' '7' '8' '9'
+`0` `1` `2` `3` `4` `5` `6` `7` `8` `9`
 
-'play' 'pause' 'stop' 'record' 'fastforward' 'rewind'
+`play` `pause` `stop` `record` `fastforward` `rewind`
 
-'sidebar'
-'dismiss'
-'search'
-'home'
+`sidebar`
+`dismiss`
+`search`
+`home`
 
 
 
