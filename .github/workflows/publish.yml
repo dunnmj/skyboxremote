@@ -7,8 +7,6 @@ on:
 jobs:
   release-build:
     runs-on: ubuntu-latest
-    needs:
-    - validation
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
