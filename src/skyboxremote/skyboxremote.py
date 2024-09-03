@@ -3,6 +3,19 @@
 # pylint: disable=too-few-public-methods
 import socket
 import time
+import asyncio
+
+
+class SkyBoxConnectionError(Exception):
+    """Sky Box Connection Error."""
+
+
+class ConnectionTimeoutError(SkyBoxConnectionError):
+    """Connection Timeout Error."""
+
+
+class NotASkyBoxError(SkyBoxConnectionError):
+    """Device probably is not a Sky box error."""
 
 
 class RemoteControl:
@@ -56,6 +69,24 @@ class RemoteControl:
             "sky": 241,
         }
 
+    async def check_connectable(self, timeout=3) -> bool:
+        """Return True if device is probably a Sky box."""
+        connection_future = asyncio.open_connection(self.host, self.port)
+        try:
+            reader, writer = await asyncio.wait_for(connection_future, timeout)
+        except asyncio.TimeoutError as e:
+            raise ConnectionTimeoutError from e
+        try:
+            data = await asyncio.wait_for(reader.read(3), timeout)
+        except asyncio.TimeoutError as e:
+            raise NotASkyBoxError from e
+        if data != bytes("SKY", "ascii"):
+            raise NotASkyBoxError
+
+        writer.close()
+        await writer.wait_closed()
+        return True
+
     def send_keys(self, key_list, time_spacing=0.01):
         """Send a single key or list of keys to the sky box."""
         if isinstance(key_list, list):
@@ -95,6 +126,6 @@ class RemoteControl:
                     client.send(bytes(command_bytes))  # Send the command bytes
                     command_bytes[1] = 0
                     client.send(bytes(command_bytes))  # Send modified command bytes again
-
+                    return None
         finally:
             client.close()  # Ensure the socket connection is closed
